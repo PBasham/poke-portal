@@ -10,14 +10,17 @@
 
 
 ## The Wireframes:
+### Pokedex view of pokemon
 ![Pokemon-Tracker-Pokedex](imgs/readme/Pokemon-Tracker-Pokedex.jpg)
+### Pokedex Entry view of pokemon
 ![Pokemon-Tracker-Pokedex-Entry](imgs/readme/Pokemon-Tracker-Pokedex-Entry.jpg)
-![Pokemon-Tracker-File](imgs/readme/Pokemon-Tracker-Profile.jpg)
+### User Profile View
+![Pokemon-Tracker-profile](imgs/readme/Pokemon-Tracker-Profile.jpg)
 
 
 
 ## The ERD: 
-
+![Pokemon-ERD](imgs/readme/20220610_164049.jpg)
 
 ## Route Table:
 
