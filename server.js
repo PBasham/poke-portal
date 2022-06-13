@@ -11,7 +11,7 @@ const PokemonRouter = require("./controllers/pokemon.js")
 /*========================================
         Create Express application Object / Bind Liquid Templating Engine        
 ========================================*/
-
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, "views/")]})
 /*========================================
         Middleware
 ========================================*/
