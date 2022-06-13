@@ -15,7 +15,10 @@ const app = require("liquid-express-views")(express(), {root: [path.resolve(__di
 /*========================================
         Middleware
 ========================================*/
-
+app.use(methodOverride("_method"))
+app.use(express.urlencoded({ extended: true}))
+app.use(express.static("public"))
+// will app.use sesison here eventually
 /*========================================
         Routes
 ========================================*/
