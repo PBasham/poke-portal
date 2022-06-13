@@ -29,7 +29,11 @@ A Pokemon app for users to track pokemon stats, create teams, and rate teams.
 
 
 ## Technologies Used:
-
+- HTML
+- CSS
+- JavaScript
+- NodeJS
+- Liquid Template Engine
 
 ## How To Use:
 
