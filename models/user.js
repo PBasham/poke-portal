@@ -19,4 +19,4 @@ const User = model("user", userSchema)
 /*========================================
         Export Models
 ========================================*/
-module.exports = { User }
+module.exports = User

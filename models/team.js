@@ -51,4 +51,4 @@ const Team = model("team", teamSchema)
 /*========================================
         Export Models
 ========================================*/
-module.exports = { Team }
+module.exports = Team

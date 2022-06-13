@@ -1,7 +1,7 @@
 /*========================================
         Require Dependencies
 ========================================*/
-const mongoose= require("./connection.js");
+const mongoose = require("./connection.js");
 
 /*========================================
         Set up Schema and Model
@@ -9,7 +9,7 @@ const mongoose= require("./connection.js");
 const { Schema, model } = mongoose
 
 const pokemonSchema = new Schema({
-    pokedexNumber: {
+    id: {
         type: Number,
         required: true,
     },
@@ -17,15 +17,30 @@ const pokemonSchema = new Schema({
         type: String,
         required: true,
     },
-    img: {
-        type: String,
-        default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+    sprites: {
+        back_default: {
+            type: String,
+            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+        },
+        back_shiny: {
+            type: String,
+            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+        },
+        front_default: {
+            type: String,
+            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+        },
+        front_shiny: {
+            type: String,
+            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+        },
     }
+
 })
 
-const Pokemon = model("pokemon",pokemonSchema )
+const Pokemon = model("pokemon", pokemonSchema)
 
 /*========================================
         Export Models
 ========================================*/
-module.exports = { Pokemon }
+module.exports = Pokemon
