@@ -22,7 +22,10 @@ app.use(express.static("public"))
 /*========================================
         Routes
 ========================================*/
-
+app.use("/pokemon, PokemonRouter")
+app.get("/", (req, res) => {
+    res.send("You've reached the '/' route")
+})
 /*========================================
         Server Listener
 ========================================*/
