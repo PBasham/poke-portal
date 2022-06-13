@@ -3,15 +3,16 @@
 ========================================*/
 require("dotenv").config()
 const express = require("express")
-const morgan = require("morgan")
 const methodOverride = require("method-override")
 const path = require("path")
+const morgan = require("morgan")
 const PokemonRouter = require("./controllers/pokemon.js")
 // will need to require UserRouter session and mogostore
 /*========================================
         Create Express application Object / Bind Liquid Templating Engine        
 ========================================*/
-const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, "views/")]})
+const app = require("liquid-express-views")(express())
+// const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, "views/")]})
 /*========================================
         Middleware
 ========================================*/
