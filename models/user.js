@@ -14,7 +14,7 @@ const userSchema = new Schema({
     // nickname:,
 })
 
-const User = modeel("user",userShema )
+const User = model("user", userSchema)
 
 /*========================================
         Export Models

@@ -46,7 +46,7 @@ const teamSchema = new Schema({
     }
 })
 
-const Team = modeel("team",teamShema )
+const Team = model("team", teamSchema)
 
 /*========================================
         Export Models

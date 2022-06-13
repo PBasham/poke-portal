@@ -23,7 +23,7 @@ const pokemonSchema = new Schema({
     }
 })
 
-const Pokemon = modeel("pokemon",pokemonShema )
+const Pokemon = model("pokemon",pokemonSchema )
 
 /*========================================
         Export Models
