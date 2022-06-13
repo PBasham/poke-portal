@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 const express = require("express")
+const res = require("express/lib/response")
 const Pokemon = require("../models/pokemon.js")
 /*========================================
         Create Route
@@ -20,7 +21,17 @@ router.use((req, res, next) => {
 ========================================*/
 // I-N-D-U-C-E-S
 // index route ('/') - method=GET
+router.get("/", (req, res) => {
+    Pokemon.find({}).sort("id")
+    .then((pokemon) => {
 
+        res.render("pokemon/index.liquid", { allPokemon: pokemon })
+    })
+    .catch((error) => {
+        console.log(error)
+        res.json({error})
+    })
+})
 // new route ('/new') - method=GET
 
 // delete route ('/:id') - method=DELETE

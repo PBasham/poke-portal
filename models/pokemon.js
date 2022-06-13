@@ -19,24 +19,31 @@ const pokemonSchema = new Schema({
     },
     sprites: {
         back_default: {
-            type: String,
-            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+            type: String
+        },
+        back_female: {
+            type: String
         },
         back_shiny: {
-            type: String,
-            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+            type: String
+        },
+        back_shiny_female: {
+            type: String
         },
         front_default: {
-            type: String,
-            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+            type: String
+        },
+        front_female: {
+            type: String
         },
         front_shiny: {
-            type: String,
-            default: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Question_Mark.svg/2560px-Question_Mark.svg.png",
+            type: String
+        },
+        front_shiny_female: {
+            type: String
         },
     }
-
-})
+    })
 
 const Pokemon = model("pokemon", pokemonSchema)
 

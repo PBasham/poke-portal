@@ -1,0 +1,37 @@
+{% layout 'layout.liquid' %}
+
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <!-- <form action="/pokemon/new" method="GET">
+        <input class="edit-btn form-btn" type="submit" value="Add Pokemon">
+    </form> -->
+    <div class="pokedex">
+        {% for pokemon in allPokemon %}
+        <div class="pokedex-entry-index">
+            {{ pokemon.name}}
+            {{ pokemon.id}}
+            <a class="pokedex-img-link" href="/pokemon/{{forloop.index0}}"><img class="pokedex-img" 
+                src="
+                {% if pokemon.sprites.front_default != null %}
+                {{ pokemon.sprites.front_default }}
+                {% elsif pokemon.sprites.front_female != null %}
+                {{ pokemon.sprites.front_female }}
+                {% else %}
+                https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png
+                {% endif %}" alt=""></a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}
