@@ -14,8 +14,8 @@
     <div class="pokedex">
         {% for pokemon in allPokemon %}
         <div class="pokedex-entry-index">
-            <p class="pokedex-entry-id">{{ pokemon.id}}</p>
-            <p class="pokedex-entry-name">{{ pokemon.name}}</p>
+            <p class="pokedex-entry-id">ID:{{ pokemon.id}}</p>
+            <p class="pokedex-entry-name">{{ pokemon.name | capitalize}}</p>
             <a class="pokedex-img-link" href="/pokemon/{{pokemon._id}}"><img class="pokedex-img" 
                 src="
                 {% if pokemon.sprites.front_default != null %}

@@ -49,35 +49,51 @@ header div h1 {
         These are for for image and link to format them into the ball.
 ============================================================*/
 .pokedex-entry-index {
-    margin: 30px
+    position: relative;
+    margin: 30px;
+    font-family: 'VT323', monospace;
 }
 .pokedex-img {
     border: 2px solid black;
-    
     background-color: white;
 }
 .pokedex-img,
 .pokedex-entrie-index {
-    position: relative;
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    z-index: 10;
+    box-shadow: inset 0 0 3px 3px gray;
+    z-index: 2;
 }
 .pokedex-img-link {
     position: relative;
-    top: -72.25px;
+    top: 7.5px;
     /* background-color: black; */
     user-select: none;
-    /* z-index: -1; */
+    z-index: 2;
 }
 
-.pokedex-entrie-id {
+.pokedex-entry-id,
+.pokedex-entry-name {
     position: absolute;
+    padding: 0px 8px;
+    font-size: 24px;
+    font-family: 'VT323', monospace;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    box-shadow: inset 0 0 3px 1px gray;
+    z-index: 5;
 }
-.pokedex-entrie-name {
-    position: absolute;
+.pokedex-entry-id {
+    top: -30px;
+    left: -10px;
 }
+.pokedex-entry-name {
+    left: 0;
+    top: 120px;
+}
+
 /*============================================================
 Before and after elements are used to create the top and bottom of the pokeball for image 
 ============================================================*/
@@ -89,7 +105,7 @@ Before and after elements are used to create the top and bottom of the pokeball 
 }
 .pokedex-entry-index::after {
     /* transform: translate(-94.5%, 74.5%); */
-    transform: translate(-94.5%, 0);
+    transform: translate(-94.5%, 88%);
     background-color: rgb(255, 255, 255);
     border-radius: 0 0 150px 150px;
 }
@@ -97,13 +113,15 @@ Before and after elements are used to create the top and bottom of the pokeball 
 .pokedex-entry-index::after {
     content: "";
     position: absolute;
-    height: 86.25px;
+    height: 82.5px;
     width: 165px;
     border: 4px solid black;
     box-shadow: 0 0 10px 3px rgb(40, 40, 40);
     z-index: 1;
-}
-
+    }
+/*=========================*/
+    /* End Section */
+/*=========================*/
 .form-btn {
     color: var(--color-darkGrey);
     padding: 5px 10px;
