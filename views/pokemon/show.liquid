@@ -22,9 +22,19 @@
                 {% else %}
                 https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png
                 {% endif %}" alt="">
-                <form class="frm-add-btn" action="/team/{{ pokemon._id }}/index" method="GET">
-                    <input class="add-btn" type="submit" value="+">
-                </form>
+                <h2>Add to</h2>
+                <hr>
+                <div class="add-pokemon">
+                    {% if qtyOfTeams > 0 %}
+                    <form class="frm-add-btn" action="/team/new" method="GET">
+                        <input class="add-btn-newTeam" type="submit" value="Add To Team">
+                    </form>
+                    {% else %}
+                    <form class="frm-add-btn" action="/team/new" method="GET">
+                        <input class="add-btn-newTeam" type="submit" value="Crete new team">
+                    </form>
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="pokemon-entry-stats grid-item">

@@ -4,6 +4,7 @@
 const express = require("express")
 const res = require("express/lib/response")
 const Pokemon = require("../models/pokemon.js")
+const Teams = require("../models/team.js")
 /*========================================
         Create Route
 ========================================*/
@@ -38,7 +39,14 @@ router.get("/:id", (req, res) => {
         let indPokemon = req.params.id
         Pokemon.findById(indPokemon)
                 .then((pokemon) => {
-                        res.render("pokemon/show.liquid", { pokemon })
+                        Teams.find().count()
+                        .then((qtyOfTeams) => {
+                                res.render("pokemon/show.liquid", { pokemon, qtyOfTeams })
+                        })
+                        .catch((error) => {
+                                console.log(error)
+                                res.json({ error })
+                        })
                 })
                 .catch((error) => {
                         console.log(error)

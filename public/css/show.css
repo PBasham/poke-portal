@@ -38,6 +38,8 @@ li {
     position: relative;
     grid-column: 2/3;
     grid-row: 1/2;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .pokemon-type,
@@ -47,27 +49,21 @@ li {
     padding: 0;
 }
 .frm-add-btn {
-    position: absolute;
-    top: 0;
-    right: 90px;
 }
-.add-btn {
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    height: 50px;
-    width: 50px;
-    font-size: 40px;
-    color: green;
-    background-color: transparent;
+.add-btn-newTeam {
+    padding: 0 5px;
+    height: 30px;
+    font-size: 24px;
+    font-family: 'VT323', monospace;
+    color: black;
     border: none;
+    background-color: rgb(196, 196, 196);
     transition: 250ms ease-in-out;
 }
-.add-btn:hover {
-    color: blue
+.add-btn-newTeam:hover {
+    background-color: rgb(176, 203, 154);
 }
+
 #pokemon-entry-quicklook-img {
     height: 200px;
     width: 200px;
