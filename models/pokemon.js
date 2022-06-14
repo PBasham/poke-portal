@@ -41,9 +41,26 @@ const pokemonSchema = new Schema({
         },
         front_shiny_female: {
             type: String
-        },
-    }
-    })
+        }
+    },
+    abilities: {
+        type: Array,
+    },
+    moves: {
+        type: Array,
+    },
+    stats: {
+        type: Array,
+    },
+    types: {
+        type: Array,
+    },
+    weight: {
+        type: Number
+    },
+},
+    { strict: true }
+)
 
 const Pokemon = model("pokemon", pokemonSchema)
 

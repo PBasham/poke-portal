@@ -1,0 +1,86 @@
+{% layout "layout.liquid" %}
+{% block headerTitle %}
+<form action="/pokemon" method="GET">
+    <input class="back-btn form-btn" type="submit" value="Back">
+</form>
+<h1>Pokedex Entry - {{pokemon.name}}</h1>
+{% endblock%}
+{% block content %}
+<div class="container">
+    <form action="/pokemon/{{index}}/edit" method="GET">
+        <input class="edit-btn form-btn" type="submit" value="Edit Pokemon">
+    </form>
+    <div class="pokemon-entry-grid-template">
+        <div class="pokemon-entry-quicklook grid-item">
+            <!-- <form action="/pokemon/{{index}}?_method=DELETE" method="POST">
+                <input class="pokemon-entry-delete form-btn" type="submit" value="X">
+            </form> -->
+            <p><strong>ID:</strong> {{pokemon.id}}</p>
+            <hr>
+            <p><strong>Name:</strong> {{pokemon.name}}</p>
+            <img class="pokedex-img" 
+                src="
+                {% if pokemon.sprites.front_default != null %}
+                {{ pokemon.sprites.front_default }}
+                {% elsif pokemon.sprites.front_female != null %}
+                {{ pokemon.sprites.front_female }}
+                {% else %}
+                https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png
+                {% endif %}" alt="">
+            <p><strong>Classification:</strong> 
+            <br />
+            {{pokemon.misc.classification}}
+            </p>
+            <p id="typeP"><strong>Type:</strong></p>
+            <ul class="pokemon-Type">
+                {% for type in pokemon.type %}
+                <li>{{type}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="pokemon-entry-stats grid-item">
+            <h2>Stats</h2>
+            <hr>
+            <p><strong>HP:</strong> {{pokemon.stats.hp}}</p>
+            <p><strong>Attack:</strong> {{pokemon.stats.attack}}</p>
+            <p><strong>Defence:</strong> {{pokemon.stats.defense}}</p>
+            <p><strong>spAttack:</strong> {{pokemon.stats.spattack}}</p>
+            <p><strong>spDefense:</strong> {{pokemon.stats.spdefense}}</p>
+            <p><strong>speed:</strong> {{pokemon.stats.speed}}</p>
+        </div>
+        <div class="pokemon-entry-misc grid-item">
+            <h2>Details</h2>
+            <hr>
+            <p><strong>Sex:</strong></p>
+            <P><strong>Male:</strong> {{pokemon.misc.sex.male}}%</P>
+            <P><strong>Female:</strong> {{pokemon.misc.sex.female}}%</P>
+            <p><strong>Abilities:</strong></p>
+            <P><strong>Normal:</strong> {{pokemon.misc.abilities.normal}}</P>
+            <P><strong>Hidden:</strong> {{pokemon.misc.abilities.hidden}}</P>
+            <P><strong>Height:</strong> {{pokemon.misc.height}}</P>
+            <P><strong>Weight:</strong> {{pokemon.misc.weight}}</P>
+        </div>
+        <div class="pokemon-entry-damages grid-item">
+            <h2>Damages</h2>
+            <hr>
+            <p><strong>Normal:</strong> {{pokemon.damages.normal}}</p>
+            <p><strong>Fire:</strong> {{pokemon.damages.fire}}</p>
+            <p><strong>Water:</strong> {{pokemon.damages.water}}</p>
+            <p><strong>Electric:</strong> {{pokemon.damages.electric}}</p>
+            <p><strong>Grass:</strong> {{pokemon.damages.grass}}</p>
+            <p><strong>Ice:</strong> {{pokemon.damages.ice}}</p>
+            <p><strong>Fight:</strong> {{pokemon.damages.fight}}</p>
+            <p><strong>Poison:</strong> {{pokemon.damages.poison}}</p>
+            <p><strong>Ground:</strong> {{pokemon.damages.ground}}</p>
+            <p><strong>Flying:</strong> {{pokemon.damages.flying}}</p>
+            <p><strong>Psychic:</strong> {{pokemon.damages.psychic}}</p>
+            <p><strong>Bug:</strong> {{pokemon.damages.bug}}</p>
+            <p><strong>Rock:</strong> {{pokemon.damages.rock}}</p>
+            <p><strong>Ghost:</strong> {{pokemon.damages.ghost}}</p>
+            <p><strong>Dragon:</strong> {{pokemon.damages.dragon}}</p>
+            <p><strong>Dark:</strong> {{pokemon.damages.dark}}</p>
+            <p><strong>Steel:</strong> {{pokemon.damages.steel}}</p>
+        </div>
+    </div>
+</div>
+    {% endblock%}

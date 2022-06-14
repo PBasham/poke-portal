@@ -22,7 +22,7 @@ router.use((req, res, next) => {
 // I-N-D-U-C-E-S
 // index route ('/') - method=GET
 router.get("/", (req, res) => {
-        Pokemon.find({}).sort("id")
+        Pokemon.find({},{name: 1, id: 1, sprites: 1}).sort("id")
                 .then((pokemon) => {
 
                         res.render("pokemon/index.liquid", { allPokemon: pokemon })
@@ -43,7 +43,7 @@ router.get("/", (req, res) => {
 // edit route ('/:id/edit') - method=GET
 
 // show route ('/:id') - method=GET
-router.get("/:id", (res, req) => {
+router.get("/:id", (req, res) => {
         let indPokemon = req.params.id
         Pokemon.findById(indPokemon)
                 .then((pokemon) => {

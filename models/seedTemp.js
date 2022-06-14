@@ -76,7 +76,7 @@ db.on("open", () => {
     Pokemon.deleteMany({})
         .then((deletedProducts) => {
 
-            fetch("https://pokeapi.co/api/v2/pokemon-form?limit=10000&offset=0")
+            fetch("https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0")
                 .then((responseData) => {
                     // return the results in json format
                     return responseData.json()

@@ -53,6 +53,7 @@ header div h1 {
 }
 .pokedex-img {
     border: 2px solid black;
+    
     background-color: white;
 }
 .pokedex-img,
@@ -64,22 +65,31 @@ header div h1 {
     z-index: 10;
 }
 .pokedex-img-link {
-    top: 5px;
+    position: relative;
+    top: -72.25px;
     /* background-color: black; */
     user-select: none;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
+.pokedex-entrie-id {
+    position: absolute;
+}
+.pokedex-entrie-name {
+    position: absolute;
+}
 /*============================================================
 Before and after elements are used to create the top and bottom of the pokeball for image 
 ============================================================*/
 .pokedex-entry-index::before {
-    transform: translate(-5.5%, -10.5%);
+    /* transform: translate(-5.5%, -10.5%); */
+    transform: translate(-5.5%, 0);
     background-color: var(--color-pokemonRed);
     border-radius: 150px 150px 0 0;
 }
 .pokedex-entry-index::after {
-    transform: translate(-94.5%, 74.5%);
+    /* transform: translate(-94.5%, 74.5%); */
+    transform: translate(-94.5%, 0);
     background-color: rgb(255, 255, 255);
     border-radius: 0 0 150px 150px;
 }
