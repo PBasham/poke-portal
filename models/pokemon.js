@@ -55,6 +55,9 @@ const pokemonSchema = new Schema({
     types: {
         type: Array,
     },
+    height: {
+        type: Number
+    },
     weight: {
         type: Number
     },

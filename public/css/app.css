@@ -107,7 +107,7 @@ Before and after elements are used to create the top and bottom of the pokeball 
     /* transform: translate(-94.5%, 74.5%); */
     transform: translate(-94.5%, 88%);
     background-color: rgb(255, 255, 255);
-    border-radius: 0 0 150px 150px;
+    border-radius: 0 0 150px 150px; 
 }
 .pokedex-entry-index::before,
 .pokedex-entry-index::after {

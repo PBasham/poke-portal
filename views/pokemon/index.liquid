@@ -2,7 +2,7 @@
 
 
 {% block header %}
-
+<h1>Pokedex</h1>
 {% endblock %}
 
 
@@ -16,8 +16,7 @@
         <div class="pokedex-entry-index">
             <p class="pokedex-entry-id">ID:{{ pokemon.id}}</p>
             <p class="pokedex-entry-name">{{ pokemon.name | capitalize}}</p>
-            <a class="pokedex-img-link" href="/pokemon/{{pokemon._id}}"><img class="pokedex-img" 
-                src="
+            <a class="pokedex-img-link" href="/pokemon/{{pokemon._id}}"><img class="pokedex-img" src="
                 {% if pokemon.sprites.front_default != null %}
                 {{ pokemon.sprites.front_default }}
                 {% elsif pokemon.sprites.front_female != null %}

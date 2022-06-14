@@ -32,15 +32,6 @@ router.get("/", (req, res) => {
                         res.json({ error })
                 })
 })
-// new route ('/new') - method=GET
-
-// delete route ('/:id') - method=DELETE
-
-// update route ('/:id') - method=PUT
-
-// create route ('/) - method=POST
-
-// edit route ('/:id/edit') - method=GET
 
 // show route ('/:id') - method=GET
 router.get("/:id", (req, res) => {
