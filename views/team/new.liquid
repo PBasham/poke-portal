@@ -1,0 +1,29 @@
+{% layout 'layout.liquid' %}
+
+
+{% block header %}
+<h1>Create New Team</h1>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="form-team">
+        <form action="/team" method="POST">
+            <p class="frm-team-name">Team Name<span class="text-red">*</span>:<input type="text" name="teamName"
+                    placeholder="Team Name"></p>
+            <p class="frm-team-img">Team Icon:
+                <input type="text" name="teamImg" placeholder="Team Icon">
+            </p>
+            <br>
+            <br>
+            <input class="frm-team-btn" type="submit" value="Create Team">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}

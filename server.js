@@ -7,6 +7,7 @@ const methodOverride = require("method-override")
 const path = require("path")
 const morgan = require("morgan")
 const PokemonRouter = require("./controllers/pokemon.js")
+const TeamRouter = require("./controllers/team.js")
 // will need to require UserRouter session and mogostore
 /*========================================
         Create Express application Object / Bind Liquid Templating Engine        
@@ -24,6 +25,7 @@ app.use(express.static("public"))
         Routes
 ========================================*/
 app.use("/pokemon", PokemonRouter)
+app.use("/team", TeamRouter)
 app.get("/", (req, res) => {
     res.send("You've reached the '/' route")
 })

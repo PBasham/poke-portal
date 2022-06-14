@@ -10,35 +10,34 @@ const { Schema, model } = mongoose
 
 const teamSchema = new Schema({
     teamName: {
-        type: String
+        type: String,
+        required: true,
+    },
+    teamImg: {
+        type: String,
     },
     teamMembers: {
         memberOne: {
-            type: String,
             // name?
             // id?
             // image?
         },
         memberTwo: {
-            type: String,
             // name?
             // id?
             // image?
         },
         memberThree: {
-            type: String,
             // name?
             // id?
             // image?
         },
         memberFour: {
-            type: String,
             // name?
             // id?
             // image?
         },
         memberFive: {
-            type: String,
             // name?
             // id?
             // image?

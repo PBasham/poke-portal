@@ -3,7 +3,8 @@
 ========================================*/
 const express = require("express")
 const res = require("express/lib/response")
-const Pokemon = require("../models/team.js")
+const Pokemon = require("../models/pokemon.js")
+const Team = require("../models/team.js")
 /*========================================
         Create Route
 ========================================*/
@@ -34,8 +35,8 @@ router.get("/", (req, res) => {
             })
 })
 // new route ('/route/new') - method=GET
-router.get("/team/new", (req, res) => {
-    res.render("team/new")
+router.get("/new", (req, res) => {
+    res.render("team/new.liquid")
 })
 // delete route ('/route/:id') - method=DELETE
 
@@ -47,15 +48,15 @@ router.get("/team/new", (req, res) => {
 
 // show route ('/route/:id') - method=GET
 router.get("/:id", (req, res) => {
-    let indPokemon = req.params.id
-    Pokemon.findById(indPokemon)
-            .then((pokemon) => {
-                    res.render("team/show.liquid", { pokemon })
-            })
-            .catch((error) => {
-                    console.log(error)
-                    res.json({ error })
-            })
+    // let indPokemon = req.params.id
+    // Pokemon.findById(indPokemon)
+    //         .then((pokemon) => {
+    //                 res.render("team/show.liquid", { pokemon })
+    //         })
+    //         .catch((error) => {
+    //                 console.log(error)
+    //                 res.json({ error })
+    //         })
 })
 
 /*========================================
