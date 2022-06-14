@@ -53,6 +53,7 @@ header div h1 {
 }
 .pokedex-img {
     border: 2px solid black;
+    background-color: white;
 }
 .pokedex-img,
 .pokedex-entrie-index {

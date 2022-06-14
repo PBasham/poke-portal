@@ -12,8 +12,8 @@ const router = express.Router()
         Route Middleware
 ========================================*/
 router.use((req, res, next) => {
-    console.log("I run on all routes!")
-    next()
+        console.log("I run on all routes!")
+        next()
 })
 
 /*========================================
@@ -22,15 +22,15 @@ router.use((req, res, next) => {
 // I-N-D-U-C-E-S
 // index route ('/') - method=GET
 router.get("/", (req, res) => {
-    Pokemon.find({}).sort("id")
-    .then((pokemon) => {
+        Pokemon.find({}).sort("id")
+                .then((pokemon) => {
 
-        res.render("pokemon/index.liquid", { allPokemon: pokemon })
-    })
-    .catch((error) => {
-        console.log(error)
-        res.json({error})
-    })
+                        res.render("pokemon/index.liquid", { allPokemon: pokemon })
+                })
+                .catch((error) => {
+                        console.log(error)
+                        res.json({ error })
+                })
 })
 // new route ('/new') - method=GET
 
@@ -43,7 +43,17 @@ router.get("/", (req, res) => {
 // edit route ('/:id/edit') - method=GET
 
 // show route ('/:id') - method=GET
-
+router.get("/:id", (res, req) => {
+        let indPokemon = req.params.id
+        Pokemon.findById(indPokemon)
+                .then((pokemon) => {
+                        res.render("pokemon/show.liquid", { pokemon })
+                })
+                .catch((error) => {
+                        console.log(error)
+                        res.json({ error })
+                })
+})
 /*========================================
         Export the Router
 ========================================*/
