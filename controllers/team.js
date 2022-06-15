@@ -52,7 +52,7 @@ router.delete("/:id", (req, res) => {
     })
 })
 // update route ('/team/:id') - method=PUT
-
+router.put("/:id")
 // create route ('/team') - method=POST
 router.post("/", (req, res) => {
     let pageData = req.body

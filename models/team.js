@@ -17,8 +17,8 @@ const teamSchema = new Schema({
         type: String,
     },
     teamMembers:
-    {
-        memberOne: {
+    [
+        {
             pokemonId: {
                 type: Number,
                 default: null,
@@ -28,7 +28,7 @@ const teamSchema = new Schema({
                 default: ""
             },
         },
-        memberTwo: {
+        {
             pokemonId: {
                 type: Number,
                 default: null,
@@ -38,7 +38,7 @@ const teamSchema = new Schema({
                 default: ""
             },
         },
-        memberThree: {
+        {
             pokemonId: {
                 type: Number,
                 default: null,
@@ -48,7 +48,7 @@ const teamSchema = new Schema({
                 default: ""
             },
         },
-        memberFour: {
+        {
             pokemonId: {
                 type: Number,
                 default: null,
@@ -58,7 +58,7 @@ const teamSchema = new Schema({
                 default: ""
             },
         },
-        memberFive: {
+        {
             pokemonId: {
                 type: Number,
                 default: null,
@@ -68,7 +68,7 @@ const teamSchema = new Schema({
                 default: ""
             },
         },
-    }
+    ]
 })
 
 const Team = model("team", teamSchema)

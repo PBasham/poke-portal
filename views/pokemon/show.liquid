@@ -1,6 +1,6 @@
 {% layout "layout.liquid" %}
 {% block header %}
-<h1>Pokedex Entry - {{pokemon.name}}</h1>
+<h1>Pokedex Entry - {{pokemon.name | capitalize}}</h1>
 {% endblock%}
 {% block navBar %}
 <form action="/pokemon" method="GET">
@@ -29,12 +29,12 @@
                 <h2>Add to</h2>
                 <hr>
                 <div class="add-pokemon">
-                    {% if qtyOfTeams > 0 %}
+                    {% if qtyOpenTeams > 0 %}
                     <form class="frm-add-btn" action="/team/" method="GET">
                         <!-- dropdown of teams, only allow submit if team is choosen -->
                         <select >
-                            {% for team in teams %}
-                                <option value="{{team._id}}">{{team.teamName}}</option>
+                            {% for team in openTeams %}
+                                <option value="{{team._id}}">{{team.teamName}} | {{ team.teamMembers.length }}</option>
                             {% endfor %}
                         </select>
                         <input class="add-btn-newTeam" type="submit" value="Add To Team">

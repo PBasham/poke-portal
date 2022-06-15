@@ -39,14 +39,15 @@ router.get("/:id", (req, res) => {
         let indPokemon = req.params.id
         Pokemon.findById(indPokemon)
                 .then((pokemon) => {
-                        Team.find({})
-                                .then((teams) => {
-                                        Team.find().count()
-                                                .then((qtyOfTeams) => {
-                                                        res.render("pokemon/show.liquid", { pokemon,
-                                                        teams, 
-                                                        qtyOfTeams 
-                                                })
+                        Team.find( { "teamMembers.4": { $exists: false } })
+                                .then((openTeams) => {
+                                        Team.find( { "teamMembers.4": { $exists: false } }).count()
+                                                .then((qtyOpenTeams) => {
+                                                        res.render("pokemon/show.liquid", {
+                                                                pokemon,
+                                                                openTeams,
+                                                                qtyOpenTeams
+                                                        })
                                                 })
                                                 .catch((error) => {
                                                         console.log(error)
