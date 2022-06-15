@@ -32,10 +32,13 @@
                 {% for team in otherTeams %}
                 <div class="team-div">
                     {{ team.teamName}}
-                    <form action="/team/{{team._id}}?_method=DELETE" method="POST">
-                        <input class="delete-btn btn" type="submit" value="Delete Team">
-                    </form>
-                    <ul class="teamMembers">
+                    <div class="team-btns">
+                        <form  action="/team/{{team._id}}/edit" method="GET">
+                            <input class="edit-btn btn" type="submit" value="Edit Team">
+                            <input class="delete-btn btn" formaction="/team/{{team._id}}?_method=DELETE" formmethod="POST" type="submit" value="Delete Team">
+                        </form>
+                    </div>
+                        <ul class="teamMembers">
                         {% for member in team.members %}
                         <li class="team-member">
                             {{member.memberImg}}
