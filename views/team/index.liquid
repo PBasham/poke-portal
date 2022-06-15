@@ -32,7 +32,7 @@
                 {% for team in otherTeams %}
                 <div class="team-div">
                     {{ team.teamName}}
-                    <form action="">
+                    <form action="/team/{{team._id}}?_method=DELETE" method="POST">
                         <input class="delete-btn btn" type="submit" value="Delete Team">
                     </form>
                     <ul class="teamMembers">

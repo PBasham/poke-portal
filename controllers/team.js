@@ -40,7 +40,17 @@ router.get("/new", (req, res) => {
     res.render("team/new.liquid")
 })
 // delete route ('/team/:id') - method=DELETE
-
+router.delete("/:id", (req, res) => {
+    let teamId = req.params.id
+    Team.findByIdAndDelete(teamId)
+    .then((deletedData) => {
+        res.redirect("/team")
+    })
+    .catch((error) => {
+        console.log(error)
+        res.json({ error })
+    })
+})
 // update route ('/team/:id') - method=PUT
 
 // create route ('/team') - method=POST
