@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
     Team.find({})
         .then((allTeams) => {
 
-            res.render("team/index.liquid", {otherTeams: allTeams})
+            res.render("team/index.liquid", { otherTeams: allTeams })
         })
         .catch((error) => {
             console.log(error)
@@ -44,18 +44,45 @@ router.get("/new", (req, res) => {
 router.delete("/:id", (req, res) => {
     let teamId = req.params.id
     Team.findByIdAndDelete(teamId)
-    .then((deletedData) => {
-        res.redirect("/team")
-    })
-    .catch((error) => {
-        console.log(error)
-        res.json({ error })
-    })
+        .then((deletedData) => {
+            res.redirect("/team")
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
 })
-// update route ('/team/:id') - method=PUT
-router.put("/", (req,res) => {
-    console.log(req.body)
+// update route ('/team) - method=PUT --- This is to add a pokemon to a team
+router.put("/", (req, res) => {
+    // console.log(req.body)
+    let pageData = req.body.pageData.split(",")
+    let teamId = pageData[0]
+    let pokemonId = pageData[1]
 
+    // console.log(pageData)
+    console.log(`team id: ${teamId}`)
+    console.log(`pokemon id: ${pokemonId}`)
+
+    Team.findByIdAndUpdate(teamId,
+        { $push: { teamMembers: { pokemonId: pokemonId } }}
+    )
+        .then((updatedData) => {
+            console.log(updatedData)
+
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
+    res.redirect("/team")
+})
+// update route ('/team/:id) - method=PUT --- This is to edit a team name / img / color?
+router.put("/:id", (req, res) => {
+    // let teamId = req.params.id
+    // let pageData = req.body
+    // Team.findByIdAndUpdate(teamId,
+    //     { }
+    //     )
     res.redirect("/team")
 })
 // create route ('/team') - method=POST

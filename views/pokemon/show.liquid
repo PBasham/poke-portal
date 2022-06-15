@@ -32,9 +32,9 @@
                     {% if qtyOpenTeams > 0 %}
                     <form class="frm-add-btn" action="/team?_method=PUT" method="POST">
                         <!-- dropdown of teams, only allow submit if team is choosen -->
-                        <select name="_id">
+                        <select name="pageData">
                             {% for team in openTeams %}
-                                <option value="{{team._id}}">{{team.teamName}} | {{ team.teamMembers.length }}</option>
+                                <option value="{{team._id}},{{pokemon._id}}">{{team.teamName}} | {{ team.teamMembers.length }}</option>
                             {% endfor %}
                         </select>
                         <input class="add-btn-newTeam" type="submit" value="Add To Team">

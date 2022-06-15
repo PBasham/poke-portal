@@ -16,59 +16,7 @@ const teamSchema = new Schema({
     teamImg: {
         type: String,
     },
-    teamMembers:
-    [
-        {
-            pokemonId: {
-                type: Number,
-                default: null,
-            },
-            pokemonImg: {
-                type: String,
-                default: ""
-            },
-        },
-        {
-            pokemonId: {
-                type: Number,
-                default: null,
-            },
-            pokemonImg: {
-                type: String,
-                default: ""
-            },
-        },
-        {
-            pokemonId: {
-                type: Number,
-                default: null,
-            },
-            pokemonImg: {
-                type: String,
-                default: ""
-            },
-        },
-        {
-            pokemonId: {
-                type: Number,
-                default: null,
-            },
-            pokemonImg: {
-                type: String,
-                default: ""
-            },
-        },
-        {
-            pokemonId: {
-                type: Number,
-                default: null,
-            },
-            pokemonImg: {
-                type: String,
-                default: ""
-            },
-        },
-    ]
+    teamMembers: []
 })
 
 const Team = model("team", teamSchema)
