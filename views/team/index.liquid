@@ -32,7 +32,7 @@
                     <ul class="teamMembers">
                         {% for member in team.teamMembers %}
                         <li class="team-member">
-                            <img src="{{member.pokemonImg}}" alt="">
+                            <a href="/pokemon/{{member.pokemonId}}"></a><img src="{{member.pokemonImg}}" alt=""></a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -58,7 +58,7 @@
                 <ul class="teamMembers">
                     {% for member in team.teamMembers %}
                     <li class="team-member">
-                        <img src="{{member.pokemonImg}}" alt="">
+                        <a href="/pokemon/{{member.pokemonId}}"><img src="{{member.pokemonImg}}" alt=""></a>
                     </li>
                     {% endfor %}
                 </ul>

@@ -117,7 +117,17 @@ router.post("/", (req, res) => {
         })
 })
 // edit route ('/team/:id/edit') - method=GET
-
+router.get("/:id/edit", (req, res) => {
+    let teamId = req.params.id
+    Team.findById(teamId)
+    .then((editTeam) => {
+        res.render("team/edit", editTeam)
+    })
+    .catch((error) => {
+        console.log(error)
+        res.json({ error })
+    })
+})
 // show route ('/team/:id') - method=GET
 router.get("/:id", (req, res) => {
     // let indPokemon = req.params.id
