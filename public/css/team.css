@@ -1,0 +1,55 @@
+:root {
+    --color-pokemonRed: #e4000f;
+    --color-darkGrey: rgb(71, 71, 71);
+}
+
+.container-teams {
+    padding: 30px 30px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 3px 3px black;
+    background-color: var(--color-lightGreen);
+}
+
+#myTeams {
+    min-height: 200px;
+}
+#otherTeams {
+    min-height: 400px;
+}
+
+.team-div {
+    position: relative;
+    margin: 10px 0;
+    padding: 10px 7px;
+    width: 500px;
+    height: 125px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    box-shadow: inset 0 0 2px 2px var(--color-whiteGrey);
+}
+
+.teamMembers {
+    list-style: none;
+}
+.team-member {
+    margin: 0 10px;
+    height: 50px;
+    width: 50px;
+    background-color: whitesmoke;
+    box-shadow: inset 0 0 2px 2px var(--color-whiteGrey);
+}
+
+.delete-btn {
+    position: absolute;
+    margin: 10px;
+    padding: 5px 10px;
+    top: 0;
+    right: 0;
+    color: white;
+    font-size: 1em;
+    border: none;
+    background-color: var(--color-darkGrey);
+}
+.delete-btn:hover {
+    background-color: var(--color-pokemonRed);
+}

@@ -13,8 +13,8 @@ const router = express.Router()
         Route Middleware
 ========================================*/
 router.use((req, res, next) => {
-        console.log("I run on all routes!")
-        next()
+    console.log("I run on all routes!")
+    next()
 })
 
 
@@ -22,40 +22,44 @@ router.use((req, res, next) => {
         Routes
 ========================================*/
 // I-N-D-U-C-E-S
-// index route ('/route') - method=GET
+// index route ('/team') - method=GET
 router.get("/", (req, res) => {
-//     Pokemon.find({},{name: 1, id: 1, sprites: 1}).sort("id")
-//             .then((pokemon) => {
+    // query to get teams
+    Team.find({})
+        .then((allTeams) => {
 
-//                     res.render("team/index.liquid", { allPokemon: pokemon })
-//             })
-//             .catch((error) => {
-    //                     console.log(error)
-    //                     res.json({ error })
-    //             })
-                        res.render("team/index.liquid")
+            res.render("team/index.liquid", {otherTeams: allTeams})
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
 })
-// new route ('/route/new') - method=GET
+// new route ('/team/new') - method=GET
 router.get("/new", (req, res) => {
     res.render("team/new.liquid")
 })
-// delete route ('/route/:id') - method=DELETE
+// delete route ('/team/:id') - method=DELETE
 
-// update route ('/route/:id') - method=PUT
+// update route ('/team/:id') - method=PUT
 
-// create route ('/route') - method=POST
+// create route ('/team') - method=POST
 router.post("/", (req, res) => {
     let pageData = req.body
     console.log(pageData)
-    
-    Team.create(pageData)
-    .then((newTeam) => {
-        res.redirect("/team")
-    })
-})
-// edit route ('/route/:id/edit') - method=GET
 
-// show route ('/route/:id') - method=GET
+    Team.create(pageData)
+        .then((newTeam) => {
+            res.redirect("/team")
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
+})
+// edit route ('/team/:id/edit') - method=GET
+
+// show route ('/team/:id') - method=GET
 router.get("/:id", (req, res) => {
     // let indPokemon = req.params.id
     // Pokemon.findById(indPokemon)

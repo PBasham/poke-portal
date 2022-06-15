@@ -2,6 +2,7 @@
     --color-pokemonRed: #e4000f;
     --color-darkGrey: rgb(71, 71, 71);
     --color-whiteGrey: rgb(192, 188, 188);
+    --color-lightGreen: rgb(189, 228, 170)
 }
 
 body {
@@ -32,7 +33,7 @@ header div h1 {
     padding: 60px 10px;
     border: 2px solid black;
     border-radius: 20px;
-    background-color: whitesmoke;
+    background-color: whitesmoke; 
 }
 .pokedex {
     display: flex;
@@ -122,6 +123,9 @@ Before and after elements are used to create the top and bottom of the pokeball 
 /*=========================*/
     /* End Section */
 /*=========================*/
+.btn {
+    font-family: 'VT323', monospace;
+}
 .form-btn {
     color: var(--color-darkGrey);
     padding: 5px 10px;

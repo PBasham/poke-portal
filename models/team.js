@@ -1,7 +1,7 @@
 /*========================================
         Require Dependencies
 ========================================*/
-const mongoose= require("./connection.js");
+const mongoose = require("./connection.js");
 
 /*========================================
         Set up Schema and Model
@@ -18,29 +18,49 @@ const teamSchema = new Schema({
     },
     teamMembers: {
         memberOne: {
-            // name?
-            // id?
-            // image?
+            pokemonId: {
+                type: Number
+            },
+            pokemonImg: {
+                type: String,
+                default: ""
+            },
         },
         memberTwo: {
-            // name?
-            // id?
-            // image?
+            pokemonId: {
+                type: Number
+            },
+            pokemonImg: {
+                type: String,
+                default: ""
+            },
         },
         memberThree: {
-            // name?
-            // id?
-            // image?
+            pokemonId: {
+                type: Number
+            },
+            pokemonImg: {
+                type: String,
+                default: ""
+            },
         },
         memberFour: {
-            // name?
-            // id?
-            // image?
+            pokemonId: {
+                type: Number
+            },
+            pokemonImg: {
+                type: String,
+                default: ""
+            },
         },
         memberFive: {
-            // name?
-            // id?
-            // image?
+            pokemonId: {
+                type: Number
+            },
+            pokemonImg: {
+                type: String,
+                default: ""
+            },
         },
     }
 })

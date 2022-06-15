@@ -2,15 +2,43 @@
 
 
 {% block header %}
-<h1>Your Teams</h1>
+<h1>Pokemon Teams</h1>
 {% endblock %}
 
 
 {% block content %}
 <div class="container">
-            <!-- For loop to display all of your teams in their own divs -->
-            <!-- For loop to display all existing teams in their own divs -->
+    <div class="container-teams">
+        <!-- For loop to display all of your teams in their own divs -->
+        <div id="myTeams">
+            <h2>Your Teams</h2>
+            {% for team in myTeams %}
+            <div class="team-div">
+                
+            </div>
+            {% endfor %}
+        </div>
+        <!-- For loop to display all existing teams in their own divs -->
+        <div id="otherTeams">
             <!-- only allow edit if the user owns the team -->
+            <h2>Other Teams</h2>
+            {% for team in otherTeams %}
+                <div class="team-div">
+                    {{ team.teamName}}
+                    <form action="">
+                        <input class="delete-btn btn" type="submit" value="Delete Team">
+                    </form>
+                    <ul class="teamMembers">
+                        {% for member in team.members %}
+                        <li class="team-member">
+                            {{member.memberImg}}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endblock %}
 
