@@ -1,10 +1,14 @@
 {% layout "layout.liquid" %}
 {% block header %}
-<form action="/pokemon" method="GET">
-    <input class="back-btn form-btn" type="submit" value="Back">
-</form>
 <h1>Pokedex Entry - {{pokemon.name}}</h1>
 {% endblock%}
+{% block navBar %}
+<form action="/pokemon" method="GET">
+    <input class="nav-btn" type="submit" value="Back">
+    <input class="nav-btn" type="submit" formaction="/team" formmethod="GET" value="View Teams">
+</form>
+{% endblock %}
+
 
 {% block content %}
 <div class="container">

@@ -4,7 +4,12 @@
 {% block header %}
 <h1>Create New Team</h1>
 {% endblock %}
-
+{% block navBar %}
+<form action="/pokemon" method="GET">
+    <input class="nav-btn" type="submit" value="Back to Pokemon">
+    <input class="nav-btn" type="submit" formaction="/team" formmethod="GET" value="back to Teams">
+</form>
+{% endblock %}
 
 {% block content %}
 <div class="container">

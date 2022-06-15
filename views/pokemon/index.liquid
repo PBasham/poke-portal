@@ -3,8 +3,12 @@
 
 {% block header %}
 <h1>Pokedex</h1>
+{% endblock%}
+{% block navBar %}
+<form action="/team" method="GET">
+    <input class="nav-btn" type="submit" value="View Teams">
+</form>
 {% endblock %}
-
 
 {% block content %}
 <div class="container">

@@ -36,12 +36,7 @@ header {
     user-select: none;
 }
 .nav-bar {
-    /* display: flex; */
     padding-bottom: 5px;
-    /* position: absolute; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* background-color: blue; */
 }
 .nav-bar form {
     display: flex;
@@ -50,7 +45,7 @@ header {
 }
 .nav-btn {
     margin: 0 10px;
-    width: 50px ;
+    width: 125px ;
     height: 50px ;
     border: 2px solid var(--color-whiteGrey);
     border-radius: 0;
