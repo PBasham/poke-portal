@@ -30,9 +30,9 @@
                 <hr>
                 <div class="add-pokemon">
                     {% if qtyOpenTeams > 0 %}
-                    <form class="frm-add-btn" action="/team/" method="GET">
+                    <form class="frm-add-btn" action="/team?_method=PUT" method="POST">
                         <!-- dropdown of teams, only allow submit if team is choosen -->
-                        <select >
+                        <select name="_id">
                             {% for team in openTeams %}
                                 <option value="{{team._id}}">{{team.teamName}} | {{ team.teamMembers.length }}</option>
                             {% endfor %}

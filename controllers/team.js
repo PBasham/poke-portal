@@ -2,6 +2,7 @@
         Import Dependencies
 ========================================*/
 const express = require("express")
+const { redirect } = require("express/lib/response")
 const res = require("express/lib/response")
 const Pokemon = require("../models/pokemon.js")
 const Team = require("../models/team.js")
@@ -52,7 +53,11 @@ router.delete("/:id", (req, res) => {
     })
 })
 // update route ('/team/:id') - method=PUT
-router.put("/:id")
+router.put("/", (req,res) => {
+    console.log(req.body)
+
+    res.redirect("/team")
+})
 // create route ('/team') - method=POST
 router.post("/", (req, res) => {
     let pageData = req.body
