@@ -18,40 +18,55 @@
         <!-- For loop to display all of your teams in their own divs -->
         <div id="myTeams">
             <h2>Your Teams</h2>
-            {% for team in myTeams %}
-            <div class="team-div">
-                
-            </div>
-            {% endfor %}
-        </div>
-        <!-- For loop to display all existing teams in their own divs -->
-        <div id="otherTeams">
-            <!-- only allow edit if the user owns the team -->
-            <h2>Other Teams</h2>
             <div class="team-box">
-                {% for team in otherTeams %}
+                {% for team in myTeams %}
                 <div class="team-div">
                     {{ team.teamName}}
                     <div class="team-btns">
-                        <form  action="/team/{{team._id}}/edit" method="GET">
+                        <form action="/team/{{team._id}}/edit" method="GET">
                             <input class="edit-btn btn" type="submit" value="Edit Team">
-                            <input class="delete-btn btn" formaction="/team/{{team._id}}?_method=DELETE" formmethod="POST" type="submit" value="Delete Team">
+                            <input class="delete-btn btn" formaction="/team/{{team._id}}?_method=DELETE" formmethod="POST"
+                                type="submit" value="Delete Team">
                         </form>
                     </div>
-                        <ul class="teamMembers">
+                    <ul class="teamMembers">
                         {% for member in team.teamMembers %}
                         <li class="team-member">
-                            <!-- find pokemon _id that matches pokemonId in teams -->
                             <img src="{{member.pokemonImg}}" alt="">
-                            <!-- <p class="memeber-name">{{member.pokemonName}}</p> -->
                         </li>
                         {% endfor %}
                     </ul>
-                </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
     </div>
+    <!-- For loop to display all existing teams in their own divs -->
+    <div id="otherTeams">
+        <!-- only allow edit if the user owns the team -->
+        <h2>Other Teams</h2>
+        <div class="team-box">
+            {% for team in otherTeams %}
+            <div class="team-div">
+                {{ team.teamName}}
+                <div class="team-btns">
+                    <form action="/team/{{team._id}}/edit" method="GET">
+                        <input class="edit-btn btn" type="submit" value="Edit Team">
+                        <input class="delete-btn btn" formaction="/team/{{team._id}}?_method=DELETE" formmethod="POST"
+                            type="submit" value="Delete Team">
+                    </form>
+                </div>
+                <ul class="teamMembers">
+                    {% for member in team.teamMembers %}
+                    <li class="team-member">
+                        <img src="{{member.pokemonImg}}" alt="">
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 </div>
 {% endblock %}
 
