@@ -28,7 +28,8 @@
         <div id="otherTeams">
             <!-- only allow edit if the user owns the team -->
             <h2>Other Teams</h2>
-            {% for team in otherTeams %}
+            <div class="team-box">
+                {% for team in otherTeams %}
                 <div class="team-div">
                     {{ team.teamName}}
                     <form action="">
@@ -42,7 +43,8 @@
                         {% endfor %}
                     </ul>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
