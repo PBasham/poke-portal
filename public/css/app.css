@@ -14,8 +14,10 @@ header {
     display: block;
 }
 .header-title-div {
-    /* display: flex; */
-    position: relative;
+    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 50px;
+    /* position: relative; */
     /* align-items: center;
     justify-content: center; */
     text-align: center;
@@ -29,12 +31,29 @@ header {
     box-shadow: 0 0 3px 2px black;
     background-color: whitesmoke;
 }
-header div h1 {
+.header-title-div h1 {
+    margin-bottom: 5px;
     user-select: none;
 }
 .nav-bar {
-    margin-top: 0;
-    background-color: blue;
+    /* display: flex; */
+    padding-bottom: 5px;
+    /* position: absolute; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: blue; */
+}
+.nav-bar form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-btn {
+    margin: 0 10px;
+    width: 50px ;
+    height: 50px ;
+    border: 2px solid var(--color-whiteGrey);
+    border-radius: 0;
 }
 .container {
     position: relative;

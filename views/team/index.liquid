@@ -3,9 +3,12 @@
 
 {% block header %}
 <h1>Pokemon Teams</h1>
-    <form action="/pokemon" method="GET">
-        <input class="nav-btn" type="submit" value="Back">
-    </form>
+{% endblock %}
+{% block navBar %}
+<form action="/pokemon" method="GET">
+    <input class="nav-btn" type="submit" value="">
+    <input class="nav-btn" type="submit" value="Back">
+</form>
 {% endblock %}
 
 
