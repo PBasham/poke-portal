@@ -4,7 +4,7 @@
 const express = require("express")
 const res = require("express/lib/response")
 const Pokemon = require("../models/pokemon.js")
-const Teams = require("../models/team.js")
+const Team = require("../models/team.js")
 /*========================================
         Create Route
 ========================================*/
@@ -23,7 +23,7 @@ router.use((req, res, next) => {
 // I-N-D-U-C-E-S
 // index route ('/') - method=GET
 router.get("/", (req, res) => {
-        Pokemon.find({},{name: 1, id: 1, sprites: 1}).sort("id")
+        Pokemon.find({}, { name: 1, id: 1, sprites: 1 }).sort("id")
                 .then((pokemon) => {
 
                         res.render("pokemon/index.liquid", { allPokemon: pokemon })
@@ -39,14 +39,24 @@ router.get("/:id", (req, res) => {
         let indPokemon = req.params.id
         Pokemon.findById(indPokemon)
                 .then((pokemon) => {
-                        Teams.find().count()
-                        .then((qtyOfTeams) => {
-                                res.render("pokemon/show.liquid", { pokemon, qtyOfTeams })
-                        })
-                        .catch((error) => {
-                                console.log(error)
-                                res.json({ error })
-                        })
+                        Team.find({})
+                                .then((teams) => {
+                                        Team.find().count()
+                                                .then((qtyOfTeams) => {
+                                                        res.render("pokemon/show.liquid", { pokemon,
+                                                        teams, 
+                                                        qtyOfTeams 
+                                                })
+                                                })
+                                                .catch((error) => {
+                                                        console.log(error)
+                                                        res.json({ error })
+                                                })
+                                })
+                                .catch((error) => {
+                                        console.log(error)
+                                        res.json({ error })
+                                })
                 })
                 .catch((error) => {
                         console.log(error)

@@ -10,12 +10,17 @@ body {
     font-family: 'VT323', monospace;
     background-color: rgb(70, 70, 70);
 }
-header div {
-    display: flex;
+header {
+    display: block;
+}
+.header-title-div {
+    /* display: flex; */
     position: relative;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+    text-align: center;
     margin: 30px 50px;
+    /* padding: 5px 5px; */
     height: 125px;
     color: var(--color-darkGrey);
     font-size: 2em;
@@ -26,6 +31,10 @@ header div {
 }
 header div h1 {
     user-select: none;
+}
+.nav-bar {
+    margin-top: 0;
+    background-color: blue;
 }
 .container {
     position: relative;

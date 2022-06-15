@@ -16,10 +16,12 @@ const teamSchema = new Schema({
     teamImg: {
         type: String,
     },
-    teamMembers: {
+    teamMembers:
+    {
         memberOne: {
             pokemonId: {
-                type: Number
+                type: Number,
+                default: null,
             },
             pokemonImg: {
                 type: String,
@@ -28,7 +30,8 @@ const teamSchema = new Schema({
         },
         memberTwo: {
             pokemonId: {
-                type: Number
+                type: Number,
+                default: null,
             },
             pokemonImg: {
                 type: String,
@@ -37,7 +40,8 @@ const teamSchema = new Schema({
         },
         memberThree: {
             pokemonId: {
-                type: Number
+                type: Number,
+                default: null,
             },
             pokemonImg: {
                 type: String,
@@ -46,7 +50,8 @@ const teamSchema = new Schema({
         },
         memberFour: {
             pokemonId: {
-                type: Number
+                type: Number,
+                default: null,
             },
             pokemonImg: {
                 type: String,
@@ -55,7 +60,8 @@ const teamSchema = new Schema({
         },
         memberFive: {
             pokemonId: {
-                type: Number
+                type: Number,
+                default: null,
             },
             pokemonImg: {
                 type: String,
