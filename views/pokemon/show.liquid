@@ -34,7 +34,10 @@
                         <!-- dropdown of teams, only allow submit if team is choosen -->
                         <select name="pageData">
                             {% for team in openTeams %}
-                                <option value="{{team._id}},{{pokemon._id}}">{{team.teamName}} | {{ team.teamMembers.length }}</option>
+                            <option value="{{team._id}},{{pokemon._id}},{{pokemon.name}},{% if pokemon.sprites.front_default != null %}{{ pokemon.sprites.front_default }}{% elsif pokemon.sprites.front_female != null %}{{ pokemon.sprites.front_female }}{% else %}
+                                https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png
+                            {% endif %}
+                            ">{{team.teamName}} | {{ team.teamMembers.length }}</option>
                             {% endfor %}
                         </select>
                         <input class="add-btn-newTeam" type="submit" value="Add To Team">

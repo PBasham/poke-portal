@@ -20,7 +20,7 @@
     margin: 10px 0;
     padding: 5px 10px;
     min-height: 400px;
-    width: 515px;
+    width: 615px;
     border-radius: 15px;
     background-color: rgb(140, 170, 125);
 }
@@ -29,7 +29,7 @@
     margin-top: 5px ;
     margin-bottom: 5px ;
     padding: 10px 7px;
-    width: 500px;
+    width: 600px;
     height: 125px;
     border-radius: 15px;
     background-color: whitesmoke;
@@ -42,10 +42,17 @@
 .team-member {
     display: inline-block;
     margin: 0 10px;
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     background-color: whitesmoke;
     box-shadow: inset 0 0 2px 2px var(--color-whiteGrey);
+}
+.team-member img {
+    height: 75px;
+    width: 75px;
+}
+.team-member p {
+    
 }
 .team-btns {
     position: absolute;

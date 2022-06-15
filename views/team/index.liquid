@@ -39,9 +39,11 @@
                         </form>
                     </div>
                         <ul class="teamMembers">
-                        {% for member in team.members %}
+                        {% for member in team.teamMembers %}
                         <li class="team-member">
-                            {{member.memberImg}}
+                            <!-- find pokemon _id that matches pokemonId in teams -->
+                            <img src="{{member.pokemonImg}}" alt="">
+                            <!-- <p class="memeber-name">{{member.pokemonName}}</p> -->
                         </li>
                         {% endfor %}
                     </ul>

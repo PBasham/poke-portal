@@ -28,8 +28,19 @@ router.get("/", (req, res) => {
     // query to get teams
     Team.find({})
         .then((allTeams) => {
+            Pokemon.find({})
+                .then((pokemon) => {
 
-            res.render("team/index.liquid", { otherTeams: allTeams })
+                    res.render("team/index.liquid",
+                        {
+                            otherTeams: allTeams,
+                            pokemon,
+                        })
+                })
+                .catch((error) => {
+                    console.log(error)
+                    res.json({ error })
+                })
         })
         .catch((error) => {
             console.log(error)
@@ -58,14 +69,20 @@ router.put("/", (req, res) => {
     let pageData = req.body.pageData.split(",")
     let teamId = pageData[0]
     let pokemonId = pageData[1]
+    let pokemonName = pageData[2]
+    let pokemonImg = pageData[3]
 
-    // console.log(pageData)
+    console.log(pageData)
     console.log(`team id: ${teamId}`)
     console.log(`pokemon id: ${pokemonId}`)
+    console.log(`pokemon name: ${pokemonName}`)
+    console.log(`pokemon img: ${pokemonImg}`)
 
     Team.findByIdAndUpdate(teamId,
-        { $push: { teamMembers: { pokemonId: pokemonId } }}
-    )
+        { $push: { teamMembers: { pokemonId: pokemonId,
+                                pokemonName: pokemonName,
+                                pokemonImg: pokemonImg,
+        } } }, {new: true})
         .then((updatedData) => {
             console.log(updatedData)
 
