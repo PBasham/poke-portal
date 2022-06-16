@@ -9,10 +9,19 @@ const mongoose= require("./connection.js");
 const { Schema, model } = mongoose
 
 const userSchema = new Schema({
-    username: String,
-    password: String,
-    // nickname:,
-})
+        username: {
+            type: String,
+            required: true,
+            unique: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        nickName: {
+                type: String,
+        }
+    })
 
 const User = model("user", userSchema)
 

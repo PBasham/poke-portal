@@ -8,7 +8,8 @@ const path = require("path")
 const morgan = require("morgan")
 const PokemonRouter = require("./controllers/pokemon.js")
 const TeamRouter = require("./controllers/team.js")
-// will need to require UserRouter session and mogostore
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
 /*========================================
         Create Express application Object / Bind Liquid Templating Engine        
 ========================================*/

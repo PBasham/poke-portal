@@ -16,7 +16,11 @@ const teamSchema = new Schema({
     teamImg: {
         type: String,
     },
-    teamMembers: []
+    teamMembers: [],
+    userId: {
+        type: String,
+        required: true,
+    }
 })
 
 const Team = model("team", teamSchema)
