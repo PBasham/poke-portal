@@ -8,6 +8,7 @@ const path = require("path")
 const morgan = require("morgan")
 const PokemonRouter = require("./controllers/pokemon.js")
 const TeamRouter = require("./controllers/team.js")
+const UserRouter = require("./controllers/user.js")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
 /*========================================
@@ -31,6 +32,7 @@ app.use(session({
 ========================================*/
 app.use("/pokemon", PokemonRouter)
 app.use("/team", TeamRouter)
+app.use("/user", UserRouter)
 
 app.get("/", (req, res) => {
     res.render("index")

@@ -1,0 +1,31 @@
+{% layout "layout.liquid" %}
+
+{% block header %}
+<h1>Pokemon Tracker</h1>
+{% endblock%}
+{% block navBar %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="pokedex">
+    <form action="/user/login" method="post">
+      <fieldset>
+        <legend>User Login</legend>
+        <label>USERNAME: <input type="text" name="username" required />
+        </label>
+        <br>
+        <label>PASSWORD: <input type="password" name="password" required />
+        </label>
+        <br>
+        <input type="submit" value="Login" />
+        <input type="submit" value="Signup" formaction="/user/signup" formmethod="GET" formnovalidate />
+      </fieldset>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
