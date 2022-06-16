@@ -26,7 +26,7 @@ router.use((req, res, next) => {
 // index route ('/team') - method=GET
 router.get("/", (req, res) => {
     // query to get teams
-    Team.find({})
+    Team.find({username: req.session.username})
         .then((allTeams) => {
             Pokemon.find({})
                 .then((pokemon) => {
