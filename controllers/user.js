@@ -38,6 +38,10 @@ router.get("/login", async (req, res) => {
     res.render("user/login")
 })
 // login method="POST" route - "/login" async
+router.post("/login", async (req, res) => {
+    // get page data from req body
+    const { username, password }  = req.body
+})
 
 // logout method="GET" route - "/logout"
 router.get("/logout", (req, res) => {
