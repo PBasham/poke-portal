@@ -13,22 +13,26 @@ const MongoStore = require("connect-mongo")
 /*========================================
         Create Express application Object / Bind Liquid Templating Engine        
 ========================================*/
-const app = require("liquid-express-views")(express())
-// const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, "views/")]})
+const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
 /*========================================
         Middleware
 ========================================*/
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: true}))
 app.use(express.static("public"))
-// will app.use sesison here eventually
+app.use(session({
+        secret: process.env.SECRET,
+        store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
+        saveUninitialized: true,
+        resave: false,
+}))
 /*========================================
         Routes
 ========================================*/
 app.use("/pokemon", PokemonRouter)
 app.use("/team", TeamRouter)
 app.get("/", (req, res) => {
-    res.send("You've reached the '/' route")
+    res.render("index")
 })
 /*========================================
         Server Listener
