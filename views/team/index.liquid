@@ -33,7 +33,7 @@
                     <ul class="teamMembers">
                         {% for member in team.teamMembers %}
                         <li class="team-member">
-                            <a href="/pokemon/{{member.pokemonId}}"></a><img src="{{member.pokemonImg}}" alt=""></a>
+                            <a href="/pokemon/{{member.pokemonId}}"><img src="{{member.pokemonImg}}" alt=""></a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -47,14 +47,11 @@
             <h2>Other Teams</h2>
             <div class="team-box">
                 {% for team in otherTeams %}
+                {% if team.teamMembers.length > 0 %}
                 <div class="team-div">
                     {{ team.teamName}}
                     <div class="team-btns">
-                        <form action="/team/{{team._id}}/edit" method="GET">
-                            <input class="edit-btn btn" type="submit" value="Edit Team">
-                            <input class="delete-btn btn" formaction="/team/{{team._id}}?_method=DELETE"
-                                formmethod="POST" type="submit" value="Delete Team">
-                        </form>
+                        {{team.username}}
                     </div>
                     <ul class="teamMembers">
                         {% for member in team.teamMembers %}
@@ -64,6 +61,7 @@
                         {% endfor %}
                     </ul>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>

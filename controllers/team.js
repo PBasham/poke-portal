@@ -26,15 +26,25 @@ router.use((req, res, next) => {
 // index route ('/team') - method=GET
 router.get("/", (req, res) => {
     // query to get teams
-    Team.find({username: req.session.username})
-        .then((allTeams) => {
-            Pokemon.find({})
-                .then((pokemon) => {
+    Team.find({ username: req.session.username })
+        .then((myTeams) => {
+            Team.find({
+                username: { $ne: req.session.username }
+            })
+                .then((otherTeams) => {
+                    Pokemon.find({})
+                        .then((pokemon) => {
 
-                    res.render("team/index.liquid",
-                        {
-                            otherTeams: allTeams,
-                            pokemon,
+                            res.render("team/index.liquid",
+                                {
+                                    myTeams,
+                                    otherTeams,
+                                    pokemon,
+                                })
+                        })
+                        .catch((error) => {
+                            console.log(error)
+                            res.json({ error })
                         })
                 })
                 .catch((error) => {
@@ -123,7 +133,7 @@ router.post("/", (req, res) => {
     let pageData = req.body
     console.log(pageData)
     req.body.username = req.session.username
-    
+
     Team.create(pageData)
         .then((newTeam) => {
             res.redirect("/team")
