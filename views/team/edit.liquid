@@ -15,7 +15,7 @@
 <div class="container">
     <div class="container-teams">
         <div class="form-team">
-            <form action="/team/{{editTeam._id}}" method="PUT">
+            <form action="/team/{{editTeam._id}}?_method=PUT" method="POST">
                 <p class="frm-team-name">Team Name<span class="text-red">*</span>:<input type="text" name="teamName" value="{{editTeam.teamName}}" placeholder="Team Name"></p>
                 <p class="frm-team-img">Team Icon:
                     <input type="text" name="teamImg" value="{{editTeam.teamImg}}" placeholder="Team Icon">
@@ -27,9 +27,7 @@
                 <div class="team-div">
                     {{ editTeam.teamName}}
                     <div class="team-btns">
-                        <form ç method="POST">
-                            <input class="delete-btn btn" type="submit" value="Delete Team" formaction="/team/{{editTeam._id}}?_method=DELETE" formmethod="POST" >
-                        </form>
+                        <input class="delete-btn btn" type="submit" value="Delete Team" formaction="/team/{{editTeam._id}}?_method=DELETE" formmethod="POST" >
                     </div>
                     <ul class="teamMembers">
                         {% for member in editTeam.teamMembers %}

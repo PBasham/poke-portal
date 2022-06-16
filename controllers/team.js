@@ -67,7 +67,7 @@ router.delete("/:id", (req, res) => {
 })
 // update route ('/team) - method=PUT --- This is to add a pokemon to a team
 router.put("/", (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     let pageData = req.body.pageData.split(",")
     let teamId = pageData[0]
     let pokemonId = pageData[1]
@@ -99,9 +99,18 @@ router.put("/", (req, res) => {
 router.put("/:id", (req, res) => {
     let teamId = req.params.id
     let pageData = req.body
-    Team.findByIdAndUpdate(teamId,
-        {pageData}
-        )
+    console.log(teamId)
+    console.log(pageData)
+    
+    Team.findByIdAndUpdate(teamId, pageData, {new: true})
+    .then((updatedData) => {
+        console.log(updatedData)
+
+    })
+    .catch((error) => {
+        console.log(error)
+        res.json({ error })
+    })
     res.redirect("/team")
 })
 // create route ('/team') - method=POST
