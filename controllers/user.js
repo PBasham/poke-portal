@@ -40,7 +40,12 @@ router.get("/login", async (req, res) => {
 // login method="POST" route - "/login" async
 
 // logout method="GET" route - "/logout"
-
+router.get("/logout", (req, res) => {
+    // Destroy session and redirect to login page
+    req.session.destroy((err) => {
+      res.redirect("/user/login")
+    })
+  })
 /*========================================
         Export Router
 ========================================*/
