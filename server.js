@@ -31,6 +31,7 @@ app.use(session({
 ========================================*/
 app.use("/pokemon", PokemonRouter)
 app.use("/team", TeamRouter)
+
 app.get("/", (req, res) => {
     res.render("index")
 })
