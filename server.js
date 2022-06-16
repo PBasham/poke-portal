@@ -35,7 +35,7 @@ app.use("/team", TeamRouter)
 app.use("/user", UserRouter)
 
 app.get("/", (req, res) => {
-    res.render("index")
+    res.render("user/login")
 })
 /*========================================
         Server Listener

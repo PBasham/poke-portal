@@ -122,7 +122,8 @@ router.put("/:id", (req, res) => {
 router.post("/", (req, res) => {
     let pageData = req.body
     console.log(pageData)
-
+    req.body.username = req.session.username
+    
     Team.create(pageData)
         .then((newTeam) => {
             res.redirect("/team")

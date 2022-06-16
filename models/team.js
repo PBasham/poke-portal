@@ -17,10 +17,10 @@ const teamSchema = new Schema({
         type: String,
     },
     teamMembers: [],
-    userId: {
+    username: {
         type: String,
         required: true,
-    }
+    },
 })
 
 const Team = model("team", teamSchema)
