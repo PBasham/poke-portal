@@ -41,6 +41,8 @@ router.get("/login", async (req, res) => {
 router.post("/login", async (req, res) => {
     // get page data from req body
     const { username, password }  = req.body
+    // check the database to see if the user exist and if the password matches
+    // User.findOne({ useranme })
 })
 
 // logout method="GET" route - "/logout"
