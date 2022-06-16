@@ -55,7 +55,7 @@ router.get("/new", (req, res) => {
 router.delete("/:id", (req, res) => {
     let teamId = req.params.id
     console.log(teamId)
-    
+
     Team.findByIdAndDelete(teamId)
         .then((deletedData) => {
             res.redirect("/team")
@@ -81,10 +81,15 @@ router.put("/", (req, res) => {
     console.log(`pokemon img: ${pokemonImg}`)
 
     Team.findByIdAndUpdate(teamId,
-        { $push: { teamMembers: { pokemonId: pokemonId,
-                                pokemonName: pokemonName,
-                                pokemonImg: pokemonImg,
-        } } }, {new: true})
+        {
+            $push: {
+                teamMembers: {
+                    pokemonId: pokemonId,
+                    pokemonName: pokemonName,
+                    pokemonImg: pokemonImg,
+                }
+            }
+        }, { new: true })
         .then((updatedData) => {
             console.log(updatedData)
 
@@ -93,7 +98,7 @@ router.put("/", (req, res) => {
             console.log(error)
             res.json({ error })
         })
-    res.redirect("/team")
+    res.redirect(`/pokemon/${pokemonId}`)
 })
 // update route ('/team/:id) - method=PUT --- This is to edit a team name / img / color?
 router.put("/:id", (req, res) => {
@@ -101,16 +106,16 @@ router.put("/:id", (req, res) => {
     let pageData = req.body
     console.log(teamId)
     console.log(pageData)
-    
-    Team.findByIdAndUpdate(teamId, pageData, {new: true})
-    .then((updatedData) => {
-        console.log(updatedData)
 
-    })
-    .catch((error) => {
-        console.log(error)
-        res.json({ error })
-    })
+    Team.findByIdAndUpdate(teamId, pageData, { new: true })
+        .then((updatedData) => {
+            console.log(updatedData)
+
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
     res.redirect("/team")
 })
 // create route ('/team') - method=POST
@@ -131,13 +136,13 @@ router.post("/", (req, res) => {
 router.get("/:id/edit", (req, res) => {
     let teamId = req.params.id
     Team.findById(teamId)
-    .then((editTeam) => {
-        res.render("team/edit", {editTeam})
-    })
-    .catch((error) => {
-        console.log(error)
-        res.json({ error })
-    })
+        .then((editTeam) => {
+            res.render("team/edit", { editTeam })
+        })
+        .catch((error) => {
+            console.log(error)
+            res.json({ error })
+        })
 })
 // show route ('/team/:id') - method=GET
 router.get("/:id", (req, res) => {
