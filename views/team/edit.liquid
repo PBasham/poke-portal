@@ -2,7 +2,7 @@
 
 
 {% block header %}
-<h1>Create New Team</h1>
+<h1>Edit Team</h1>
 {% endblock %}
 {% block navBar %}
 <form action="/pokemon" method="GET">
@@ -13,18 +13,35 @@
 
 {% block content %}
 <div class="container">
-    <div class="form-team">
-        <form action="/team" method="POST">
-            <p class="frm-team-name">Team Name<span class="text-red">*</span>:<input type="text" name="teamName"
-                    placeholder="Team Name"></p>
-            <p class="frm-team-img">Team Icon:
-                <input type="text" name="teamImg" placeholder="Team Icon">
-            </p>
-            <!-- maybe a color? -->
-            <br>
-            <br>
-            <input class="frm-team-btn" type="submit" value="Create Team">
-        </form>
+    <div class="container-teams">
+        <div class="form-team">
+            <form action="/team/{{editTeam._id}}" method="PUT">
+                <p class="frm-team-name">Team Name<span class="text-red">*</span>:<input type="text" name="teamName" value="{{editTeam.teamName}}" placeholder="Team Name"></p>
+                <p class="frm-team-img">Team Icon:
+                    <input type="text" name="teamImg" value="{{editTeam.teamImg}}" placeholder="Team Icon">
+                </p>
+                <!-- maybe a color? -->
+                <br>
+                <br>
+                <h2>Your Teams</h2>
+                <div class="team-div">
+                    {{ editTeam.teamName}}
+                    <div class="team-btns">
+                        <form ç method="POST">
+                            <input class="delete-btn btn" type="submit" value="Delete Team" formaction="/team/{{editTeam._id}}?_method=DELETE" formmethod="POST" >
+                        </form>
+                    </div>
+                    <ul class="teamMembers">
+                        {% for member in editTeam.teamMembers %}
+                        <li class="team-member">
+                            <a href="/pokemon/{{member.pokemonId}}"></a><img src="{{member.pokemonImg}}" alt=""></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <input class="frm-team-btn" type="submit" value="Update Team">
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}

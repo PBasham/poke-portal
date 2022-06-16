@@ -26,7 +26,16 @@ A Pokemon app for users to track pokemon stats, create teams, and rate teams.
 ![Pokemon-ERD](imgs/readme/20220610_164049.jpg)
 
 ## Route Table:
-
+| HTTP Method (Verb) | Path/Endpoint/URI | CRUD Operation or Purpose | Note |
+|:------------------:|:-----------------:|:-------------------------:|------|
+| GET                |                   |                           |      |
+| GET                |                   |                           |      |
+| GET                |                   |                           |      |
+| POST               |                   |                           |      |
+| PUT                |                   |                           |      |
+| DELETE             |                   |                           |      |
+| POST               |                   |                           |      |
+| POST               |                   |                           |      |
 
 ## Technologies Used:
 - HTML

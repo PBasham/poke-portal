@@ -54,6 +54,8 @@ router.get("/new", (req, res) => {
 // delete route ('/team/:id') - method=DELETE
 router.delete("/:id", (req, res) => {
     let teamId = req.params.id
+    console.log(teamId)
+    
     Team.findByIdAndDelete(teamId)
         .then((deletedData) => {
             res.redirect("/team")
@@ -95,11 +97,11 @@ router.put("/", (req, res) => {
 })
 // update route ('/team/:id) - method=PUT --- This is to edit a team name / img / color?
 router.put("/:id", (req, res) => {
-    // let teamId = req.params.id
-    // let pageData = req.body
-    // Team.findByIdAndUpdate(teamId,
-    //     { }
-    //     )
+    let teamId = req.params.id
+    let pageData = req.body
+    Team.findByIdAndUpdate(teamId,
+        {pageData}
+        )
     res.redirect("/team")
 })
 // create route ('/team') - method=POST
@@ -121,7 +123,7 @@ router.get("/:id/edit", (req, res) => {
     let teamId = req.params.id
     Team.findById(teamId)
     .then((editTeam) => {
-        res.render("team/edit", editTeam)
+        res.render("team/edit", {editTeam})
     })
     .catch((error) => {
         console.log(error)
