@@ -12,18 +12,25 @@
 
 {% block content %}
 <div class="container">
-    <div class="form-team">
-        <form action="/team" method="POST">
-            <p class="frm-team-name">Team Name<span class="text-red">*</span>:<input type="text" name="teamName"
-                    placeholder="Team Name"></p>
-            <p class="frm-team-img">Team Icon:
-                <input type="text" name="teamImg" placeholder="Team Icon">
-            </p>
-            <!-- maybe a color? -->
-            <br>
-            <br>
-            <input class="frm-team-btn" type="submit" value="Create Team">
-        </form>
+    <div class="container-teams">
+                <div class="form-team">
+                    <form action="/team" method="POST">
+                        <p class="frm-team-img">Team Icon:
+                            <input type="text" name="teamImg" value="{{editTeam.teamImg}}" placeholder="Team Icon">
+                        </p>
+                        <!-- maybe a color? -->
+                        <br>
+                        <br>
+                        <h2>New Team</h2>
+                        <div class="team-div">
+                            <input type="text" name="teamName" value="{{editTeam.teamName}}" placeholder="Team Name"
+                                required>
+                            <div class="team-btns">
+                                <input class="delete-btn btn" type="submit" value="Create Team">
+                            </div>
+                        </div>
+                    </form>
+                </div>
     </div>
 </div>
 {% endblock %}

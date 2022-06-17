@@ -78,3 +78,6 @@
 .delete-btn:hover {
     background-color: var(--color-pokemonRed);
 }
+.form-team {
+    margin: 0;
+}
