@@ -69,3 +69,6 @@ A Pokemon app for users to track pokemon stats, create teams and view other user
 ## Stretch goals / ICE BOX:
 - Allow the user to delete individual pokemon from a team instead of having to delete the while team.
 - Add a search bar on the pokemon index page so you can search for specific pokemon.
+- Add buttons that are more like the ingame buttons.
+- Allow each user to choose a favorite pokemon
+- Add small minigame where you can encounter a random pokemon and take a change at capturing it!
