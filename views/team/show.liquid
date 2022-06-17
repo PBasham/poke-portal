@@ -5,8 +5,8 @@
 <h1>Create New Team</h1>
 {% endblock %}
 {% block navBar %}
-<form action="/pokemon" method="GET">
-    <input class="nav-btn" type="submit" value="Back to Pokemon">
+<form action="">
+    <input class="nav-btn" type="submit" value="Back to Pokemon" onclick="history.back()">
     <input class="nav-btn" type="submit" formaction="/team" formmethod="GET" value="back to Teams">
     <input class="nav-btn" type="submit" formaction="/user/logout" formmethod="GET" value="Log Out">
 </form>
