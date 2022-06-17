@@ -32,20 +32,20 @@ router.get("/", (req, res) => {
                 username: { $ne: req.session.username }
             })
                 .then((otherTeams) => {
-                    Pokemon.find({})
-                        .then((pokemon) => {
+                    // Pokemon.find({})
+                    //     .then((pokemon) => {
 
-                            res.render("team/index.liquid",
-                                {
-                                    myTeams,
-                                    otherTeams,
-                                    pokemon,
-                                })
+                    res.render("team/index.liquid",
+                        {
+                            myTeams,
+                            otherTeams,
+                            // pokemon,
                         })
-                        .catch((error) => {
-                            console.log(error)
-                            res.json({ error })
-                        })
+                    // })
+                    // .catch((error) => {
+                    //     console.log(error)
+                    //     res.json({ error })
+                    // })
                 })
                 .catch((error) => {
                     console.log(error)
