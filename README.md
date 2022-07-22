@@ -16,6 +16,8 @@ A Pokemon app for users to track pokemon stats, create teams and view other user
 - I can delete a team.
 - I can update my teams name or image.
 
+## Link to Heroku Deployment:
+- https://poki-tracker.herokuapp.com/
 ## The Wireframes:
 ### Pokedex view of pokemon
 ![Pokemon-Tracker-Pokedex](imgs/readme/Pokemon-Tracker-Pokedex.jpg)
